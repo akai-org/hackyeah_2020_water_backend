@@ -1,0 +1,15 @@
+.idea
+venv/
+env/
+.vscode
+db.sqlite3
+__pycache__
+migrations/
+node_modules
+package-lock.json
+static/dist/index.css
+static/dist/index.js
+media/*
+pyvenv.cfg
+Lib/
+Scripts/
