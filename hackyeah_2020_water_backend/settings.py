@@ -43,6 +43,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'water_saver.apps.WaterSaverConfig',
+    'Profiles.apps.ProfilesConfig',
+    'Statistics.apps.StatisticsConfig',
+    'Habits.apps.HabitsConfig',
+    'Achievements.apps.AchievementsConfig',
 ]
 
 MIDDLEWARE = [
