@@ -10,7 +10,6 @@
 6. Migrate database: `python manage.py migrate`,
 7. Seed data: `python manage.py loaddata seed.json`
 8. To run dev server: `python manage.py runserver`
-9. PRODUCTION ONLY -> manage static files `python manage.py collectstatic`
 
 ## Tips for devs
 
