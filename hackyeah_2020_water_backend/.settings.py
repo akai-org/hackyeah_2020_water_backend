@@ -13,16 +13,14 @@ import os
 from pathlib import Path
 import django_heroku
 
-
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'w+$8mwnh#_9wv@3@sc!7r*eq5%ksmiz6^5*wixgy3ndg)dkt#*'
+SECRET_KEY = ''
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -31,7 +29,6 @@ ALLOWED_HOSTS = [
     '127.0.0.1',
     'localhost'
 ]
-
 
 # Application definition
 
@@ -47,6 +44,7 @@ INSTALLED_APPS = [
     'Statistics.apps.StatisticsConfig',
     'Habits.apps.HabitsConfig',
     'Achievements.apps.AchievementsConfig',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
@@ -82,7 +80,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'hackyeah_2020_water_backend.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
@@ -92,7 +89,6 @@ DATABASES = {
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
@@ -111,7 +107,6 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
-
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
@@ -141,8 +136,16 @@ STATICFILES_DIRS = (
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-
 MEDIA_URL = '/media/'
 MEDIA_ROOT = 'media/'
 
 django_heroku.settings(locals())
+
+REST_FRAMEWORK = {
+    'DEFAULT_RENDERER_CLASSES': [
+        'rest_framework.renderers.JSONRenderer',
+    ],
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+    ]
+}

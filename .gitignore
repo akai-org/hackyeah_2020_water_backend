@@ -13,3 +13,4 @@ media/*
 pyvenv.cfg
 Lib/
 Scripts/
+settings.py
