@@ -1,1 +1,1 @@
-web: gunicorn myproject.wsgi
+web: gunicorn hackyeah_2020_water_backend.wsgi
