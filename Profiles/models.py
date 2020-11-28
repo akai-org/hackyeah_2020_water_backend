@@ -9,6 +9,7 @@ class Profile(models.Model):
     avatar_url = models.CharField(max_length=255)
     age = models.IntegerField(null=True)
     gained_exp = models.FloatField(default=0.0)
+    saved_water = models.IntegerField(default=0)
 
     def __str__(self):
         return self.user.email
