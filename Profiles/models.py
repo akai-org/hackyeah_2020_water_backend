@@ -7,7 +7,8 @@ from django.dispatch import receiver
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     avatar_url = models.CharField(max_length=255)
-    age = models.IntegerField(default=1)
+    age = models.IntegerField(null=True)
+    gained_exp = models.FloatField(default=0.0)
 
     def __str__(self):
         return self.user.email

@@ -1,15 +1,11 @@
-from django.contrib.auth.models import User
-from rest_framework import viewsets
+from rest_framework.decorators import api_view
+from rest_framework.response import Response
 
-from Profiles.models import Profile
-from Profiles.serializers import ProfileSerializer, UserSerializer
-
-
-class ProfileViewSet(viewsets.ModelViewSet):
-    queryset = Profile.objects.all()
-    serializer_class = ProfileSerializer
+from Profiles.models import *
 
 
-class UserViewSet(viewsets.ModelViewSet):
-    queryset = User.objects.all()
-    serializer_class = UserSerializer
+@api_view(http_method_names=['POST'])
+def get_profile(request):
+    user_id = request.data['id']
+    user_profile = Profile.objects.filter(user_id=user_id).values()[0]
+    return Response(user_profile)

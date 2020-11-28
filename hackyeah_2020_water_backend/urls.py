@@ -15,19 +15,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from Profiles.views import ProfileViewSet, UserViewSet
-from Achievements.views import AchievementViewSet, CollectedAchievementViewSet
-from rest_framework import routers
-
-router = routers.DefaultRouter()
-router.register(r'profiles', ProfileViewSet)
-router.register(r'users', UserViewSet)
-router.register(r'achievements', AchievementViewSet)
-router.register(r'collected_achievements', CollectedAchievementViewSet)
+from Profiles.views import get_profile
+from Achievements.views import achievement_list
 
 urlpatterns = [
-    path('', include(router.urls)),
     path('admin/', admin.site.urls),
     path('', include('authentication.urls')),
     path('api-auth/', include('rest_framework.urls')),
+    path('profile/', get_profile),
+    path('achievements/', achievement_list)
 ]
