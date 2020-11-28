@@ -1,7 +1,5 @@
 from django.db import models
 
-# Create your models here.
-# Create your models here.
 from Profiles.models import Profile
 from Statistics.models import StatisticType
 

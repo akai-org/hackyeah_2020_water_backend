@@ -21,7 +21,7 @@ class AchievementSerializer(serializers.ModelSerializer):
             'image_url',
             'exp_value',
             'tags',
-            'statistic'
+            'statistic',
         ]
 
 
@@ -29,5 +29,7 @@ class CollectedAchievementSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.CollectedAchievement
         fields = [
-
+            'collected_at',
+            'achievement',
+            'profile',
         ]

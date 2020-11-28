@@ -16,12 +16,14 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from Profiles.views import ProfileViewSet, UserViewSet
+from Achievements.views import AchievementViewSet, CollectedAchievementViewSet
 from rest_framework import routers
 
 router = routers.DefaultRouter()
 router.register(r'profiles', ProfileViewSet)
 router.register(r'users', UserViewSet)
-
+router.register(r'achievements', AchievementViewSet)
+router.register(r'collected_achievements', CollectedAchievementViewSet)
 
 urlpatterns = [
     path('', include(router.urls)),

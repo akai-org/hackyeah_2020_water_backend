@@ -3,9 +3,16 @@ from Habits import models
 
 
 class HabitTypeSerializer(serializers.ModelSerializer):
+
     class Meta:
         model = models.HabitType
-        fields = []
+        fields = [
+            'name',
+            'description',
+            'image_url',
+            'exp_value',
+            'statistic',
+        ]
 
 
 class SelectedHabitsSerializer(serializers.ModelSerializer):
