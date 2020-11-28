@@ -15,13 +15,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from Profiles.views import get_profile
-from Achievements.views import achievement_list
+from Profiles.views import *
+from Achievements.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('authentication.urls')),
     path('api-auth/', include('rest_framework.urls')),
     path('profile/', get_profile),
-    path('achievements/', achievement_list)
+    path('achievements/', get_achievements),
 ]
