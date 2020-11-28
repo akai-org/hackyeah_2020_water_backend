@@ -15,7 +15,7 @@ class Achievement(models.Model):
     description = models.TextField()
     image_url = models.URLField()
     exp_value = models.FloatField()
-    achievements = models.ManyToManyField(Tag)
+    tags = models.ManyToManyField(Tag)
     statistic = models.ForeignKey(StatisticType, on_delete=models.CASCADE, null=True)
 
 

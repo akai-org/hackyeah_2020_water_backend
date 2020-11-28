@@ -14,7 +14,8 @@ class Voivodeship(models.Model):
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     avatar_url = models.CharField(max_length=255)
-    voivodeship = models.ManyToManyField(Voivodeship)
+    voivodeship = models.ForeignKey(Voivodeship, on_delete=models.CASCADE, null=True)
+    age = models.IntegerField(default=1)
 
     def __str__(self):
         return self.user.email

@@ -22,7 +22,7 @@ class StatisticType(models.Model):
 
 class Question(models.Model):
     name = models.CharField(max_length=255, unique=True)
-    description = models.TextField()
+    content = models.TextField()
     statistics = models.ManyToManyField(StatisticType)
 
 
