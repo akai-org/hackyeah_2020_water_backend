@@ -10,7 +10,7 @@ from social_django.utils import psa
 
 
 class SocialSerializer(serializers.Serializer):
-    access_token = serializers.CharField(
+    accessToken = serializers.CharField(
         allow_blank=False,
         trim_whitespace=True,
     )
@@ -27,7 +27,7 @@ def exchange_token(request, backend):
         except AttributeError:
             nfe = 'non_field_errors'
         try:
-            user = request.backend.do_auth(serializer.validated_data['access_token'])
+            user = request.backend.do_auth(serializer.validated_data['accessToken'])
         except HTTPError as e:
             return Response(
                 {'errors': {

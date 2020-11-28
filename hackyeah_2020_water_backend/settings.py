@@ -60,6 +60,8 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.CommonMiddleware',
 
 ]
 
@@ -182,4 +184,9 @@ SOCIAL_AUTH_PIPELINE = [
     'social_core.pipeline.user.user_details',
     'authentication.auth_pipeline.get_avatar',
     'authentication.auth_pipeline.get_name',
+]
+
+CORS_ORIGIN_WHITELIST = [
+    "http://127.0.0.1:3000",
+    'http://localhost:3000',
 ]
