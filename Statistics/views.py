@@ -13,3 +13,8 @@ def get_stats(request):
     user_stats = []
 
     return Response()
+
+
+@api_view(http_method_names=['GET'])
+def get_questions(request):
+    return Response(Question.objects.all().values())
