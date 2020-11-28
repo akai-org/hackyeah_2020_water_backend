@@ -65,3 +65,4 @@ def exchange_token(request, backend):
                 {'errors': {nfe: "Authentication Failed"}},
                 status=status.HTTP_400_BAD_REQUEST,
             )
+
