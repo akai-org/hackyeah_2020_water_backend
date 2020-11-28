@@ -16,13 +16,11 @@ class UserSerializer(serializers.ModelSerializer):
 
 class ProfileSerializer(serializers.ModelSerializer):
     user = UserSerializer()
-    voivodeship = serializers.StringRelatedField()
 
     class Meta:
         model = models.Profile
         fields = [
             'user',
             'avatar_url',
-            'voivodeship',
             'age',
         ]
