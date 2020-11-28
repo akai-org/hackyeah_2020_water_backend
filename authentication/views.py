@@ -1,3 +1,5 @@
+import datetime
+
 from django.conf import settings
 from requests.exceptions import HTTPError
 from rest_framework import serializers
@@ -39,13 +41,19 @@ def exchange_token(request, backend):
 
         if user:
             if user.is_active:
-                token, _ = Token.objects.get_or_create(user=user)
+                token, created = Token.objects.get_or_create(user=user)
+                last_login = user.last_login
+                user.last_login = datetime.datetime.now()
+                user.save()
                 return Response({'token': token.key,
                                  'user': {
                                      'id': user.id,
                                      'first_name': user.first_name,
                                      'last_name': user.last_name,
-                                     'avatar_url': user.profile.avatar_url
+                                     'avatar_url': user.profile.avatar_url,
+                                     'email': user.username,
+                                     'created': created,
+                                     'last_login': last_login
                                  }})
             else:
                 return Response(
