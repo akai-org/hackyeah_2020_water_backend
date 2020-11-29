@@ -6,6 +6,7 @@ from Statistics.models import StatisticType
 
 class Achievement(models.Model):
     name = models.CharField(max_length=255, unique=True)
+    level = models.IntegerField(default=1)
     description = models.TextField()
     image_url = models.URLField()
     exp_value = models.FloatField()
