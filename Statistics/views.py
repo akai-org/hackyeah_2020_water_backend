@@ -15,18 +15,18 @@ def send_answers_response(request):
     profile = Profile.objects.filter(user_id=user_id).values()[0]
     saved_water = 0
     gained_xp = 0
-    bath_choice = request.data['answers'][0]['answer']
+    bath_choice = request.data['answer_1']
     if bath_choice == 1:
         saved_water += 150
         gained_xp += 300
-    washing_up_choice = request.data['answers'][1]['answer']
+    washing_up_choice = request.data['answer_2']
     if washing_up_choice == 1:
         saved_water += 85
         gained_xp += 170
-    teethbrushing_choice = request.data['answers'][2]['answer']
+    teethbrushing_choice = request.data['answer_3']
     if teethbrushing_choice == 1:
-        saved_water += 15
-        gained_xp += 30
+        saved_water += 30
+        gained_xp += 60
     profile['gained_xp'] += gained_xp
     profile['saved_water'] += saved_water
     profile.save()
