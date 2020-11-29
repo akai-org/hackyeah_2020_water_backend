@@ -20,7 +20,8 @@ class StatisticType(models.Model):
 
 class Question(models.Model):
     name = models.CharField(max_length=255, unique=True)
-    content = models.TextField()
+    image1_url = models.URLField()
+    image2_url = models.URLField()
     statistics = models.ManyToManyField(StatisticType)
 
 
