@@ -1,7 +1,6 @@
 from django.db import models
 
 from Profiles.models import Profile
-from Statistics.models import StatisticType
 
 
 class Achievement(models.Model):
@@ -10,7 +9,6 @@ class Achievement(models.Model):
     description = models.TextField()
     image_url = models.URLField()
     exp_value = models.FloatField()
-    statistic = models.ForeignKey(StatisticType, on_delete=models.CASCADE, null=True)
 
 
 class CollectedAchievement(models.Model):

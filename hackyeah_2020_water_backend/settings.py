@@ -24,6 +24,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = os.environ['SECRET_KEY']
 
 # SECURITY WARNING: don't run with debug turned on in production!
+
 DEBUG = os.environ['DEBUG']
 
 ALLOWED_HOSTS = [
@@ -44,7 +45,6 @@ INSTALLED_APPS = [
     'water_saver.apps.WaterSaverConfig',
     'Profiles.apps.ProfilesConfig',
     'Statistics.apps.StatisticsConfig',
-    'Habits.apps.HabitsConfig',
     'Achievements.apps.AchievementsConfig',
     'rest_framework',
     'rest_framework.authtoken',

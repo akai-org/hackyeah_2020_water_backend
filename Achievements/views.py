@@ -26,5 +26,6 @@ def get_achievements(request):
             ach['collected_at'] = \
                 CollectedAchievement.objects.filter(profile=profile_id, achievement=ach_id).values()[0][
                     'collected_at']
+
     return Response(achievement_list)
 
